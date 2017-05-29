@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	<title>Trivia game</title>
+</head>
+<body>
+<video playsinline autoplay muted loop poster="assets/images/poster.png" id="bgvid">
+	<source src="assets/images/GP01.webm" type="video/webm">
+	<source src="assets/images/GP01.MP4" type="video/MP4">
+</video>
+<button id="vidpause" onclick="pauseVid()">Pause Video</button>
+<div class="container">
+<h1>Highway Trivia </h1>
+
+<p id="timer">Time Left:<span id="counter"></span></p>
+<hr>
+<div id="q-a">
+
+<p class="questions">Which highway is also known as 'The Mother Road'?</p>
+<p class="answers">
+<label for="i-80">Interstate 80</label>
+<input type="radio" id="i-80" value="false" name="question-one">
+<label for="us-66">U.S. 66</label>
+<input type="radio" id="us-66" value="true" name="question-one">
+<label for="i-15">Interstate 15</label>
+<input type="radio" id="i-15" value="false" name="question-one">
+<label for="us-1">U.S. 1</label>
+<input type="radio" id="us-1" value="false" name="question-one">
+</p>
+<p class="questions">Who is known as the father of the Interstate Highway System?</p>
+<p class="answers">
+<label for="eisenhower">Dwight D. Eisenhower</label>
+<input type="radio" id="eisenhower" value="true" name="question-two">
+<label for="fdr">Franklin Delano Rosevelt</label>
+<input type="radio" id="fdr" value="false" name="question-two">
+<label for="truman">Harry S. Truman</label>
+<input type="radio" id="truman" value="false" name="question-two">
+<label for="nixon">Richard Nixon</label>
+<input type="radio" id="nixon" value="false" name="question-two">
+</p>
+<p class="questions">Which interstate highway is also known as Lincoln Highway?</p>
+<p class="answers">
+<label for="i-90">Interstate 90</label>
+<input type="radio" id="i-90" value="false" name="question-three">
+<label for="i-10">Interstate 10</label>
+<input type="radio" id="i-10" value="false" name="question-three">
+<label for="us-54">U.S. 54</label>
+<input type="radio" id="us-54" value="false" name="question-three">
+<label for="i-80">Interstate 80</label>
+<input type="radio" id="i-80" value="true" name="question-three">
+</p>
+<p class="questions">Which state has the most interstate highway mileage?</p>
+<p class="answers">
+<label for="montana">Montana</label>
+<input type="radio" id="montana" value="false" name="question-four">
+<label for="california">California</label>
+<input type="radio" id="california" value="false" name="question-four">
+<label for="texas">Texas</label>
+<input type="radio" id="texas" value="true" name="question-four">
+<label for="nebraska">Nebraska</label>
+<input type="radio" id="nebraska" value="false" name="question-four">
+</p>
+<p class="questions">Which is the 'Loneliest Highway in the US'?</p>
+<p class="answers">
+<label for="us-50">U.S. 50</label>
+<input type="radio" id="us-50" value="true" name="question-five">
+<label for="i-75">Interstate 75</label>
+<input type="radio" id="i-75" value="false" name="question-five">
+<label for="i-25">Interstate 25</label>
+<input type="radio" id="i-80" value="false" name="question-five">
+<label for="ca-1">California Route 1(PCH)</label>
+<input type="radio" id="ca-1" value="false" name="question-five">
+</p>
+<p class="questions">Which highway in California passes through Donner's Pass?</p>
+<p class="answers">
+<label for="ca-1">California Route 1(PCH)</label>
+<input type="radio" id="ca-1" value="false" name="question-six">
+<label for="i-5">Interstate 5</label>
+<input type="radio" id="i-5" value="false" name="question-six">
+<label for="i-80">Interstate 80</label>
+<input type="radio" id="i-80" value="true" name="question-six">
+<label for="us-50">U.S. 50</label>
+<input type="radio" id="us-50" value="false" name="question-six">
+
+</p>
+</div>
+
+</div>
+
+<script type="text/javascript" src="assets/javascript/app.js"></script>
+<script type="text/javascript">
+	var vid = document.getElementById("bgvid"),
+pauseButton = document.getElementById("vidpause");
+if (window.matchMedia('(prefers-reduced-motion)').matches) {
+    vid.removeAttribute("autoplay");
+    vid.pause();
+    pauseButton.innerHTML = "Paused";
+}
+function pauseVid() {
+	vid.pause();
+	$("#vidpause").html("Play Video");
+	$("#vidpause").attr("onclick", "playVid()")
+}
+function playVid() {
+	$("#vidpause").html("Pause Video");
+	$("#vidpause").attr("onclick", "pauseVid()")
+	vid.play();
+}
+
+</script>
+</body>
+</html>
