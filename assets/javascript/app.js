@@ -1,7 +1,7 @@
 var totalRight =0;
 var totalWrong =0;
 var noAnswer =0;
-var seconds = 70;
+var seconds = 5;
 var myInterval = setInterval(function() {
     seconds--;
     $("#counter").html(seconds)
@@ -9,9 +9,18 @@ var myInterval = setInterval(function() {
     clearInterval(myInterval)
     checkAnswers();
     editHtml();
+    $("#submit").hide();
 
     };
     }, 1000);
+
+$("#submit").click(function(event){
+    event.preventDefault();
+    checkAnswers();
+    editHtml();
+    seconds = 0;
+    $(this).hide();
+})
 
 
 function checkAnswers() {
@@ -82,8 +91,13 @@ function checkAnswers() {
 }
 
 function editHtml () {
-    $("#q-a").html("<p class='test'>All Done!</p>" + "<br>" + "Correct: " + totalRight + "<br>" + "Incorrect: " + totalWrong + "<br>" + "Unanswered: " + noAnswer);
+    $("#timer").html(" ")
+    $("#q-a").html("<p class='done'>Done!</p>" + "<br>" + "Correct: " + totalRight + "<br>" + "Incorrect: " + totalWrong + "<br>" + "Unanswered: " + noAnswer);
 }
+
+$("#restart").click(function(){
+    location.reload();
+});
 
 
 
