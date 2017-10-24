@@ -1,7 +1,7 @@
 var totalRight =0;
 var totalWrong =0;
 var noAnswer =0;
-var seconds = 5;
+var seconds =55;
 var myInterval = setInterval(function() {
     seconds--;
     $("#counter").html(seconds)
